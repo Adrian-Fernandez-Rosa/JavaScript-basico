@@ -1,0 +1,1188 @@
+- ES UN LENGUAJE INTERPRETADO
+
+		> a diferencia como otros lenguajes se interpreta en el momento de la eJecución, hay lenguajes como java, .net, C++ etc que son lenguajes compilados, 
+		es decir que se procesan previamente antes de la ejecución y dan como resultado código compilado, como son algunas librerías, ejecutables, etc
+
+		> los lenguajes compilados tienen una depuración de errores previa a la ejecución (en la compilación) y los interpretados no.
+
+		> la ventaja de un lenguaje interpretado es que es más fácil de mantener, depurar y desarrollar en multiplataforma
+
+		> los lenguajes compilados suelen tener una ejecución más rápida
+
+	- FULL STACK: tenemos intérpretes a ambos lados del servidor web, por lo tanto es un lenguaje que se usa tanto en servidor como en Cliente
+		> en CLIENTE (FRONT) lo interpretan los navegadores
+		> en SERVIDOR (BACK) necesitaremos un interprete que tenemos que instalar, un software o entorno de producción como nodeJS
+		
+		
+		Otra cosa interesante es que es un lenguaje imperativo.
+		Las instrucciones se ejecutan una tras otras, de manera secuencial, salvo cuando se encuentran estructuras de control condicionales o bucles.
+		
+		Es un lenguaje débilmente tipado.
+		Porque no se controla el tipo de variables que se declaran, y una función podría recibir como parámetro un número o una cadena de texto...
+		
+		
+		Es un lenguaje con un tipado dinámico.
+		
+		Quiere decir que el tipo está asociado al valor no a la variable.
+		una variable "cosa" puede estar ligada a un número y posteriormente a una cadena de texto.
+		
+		Una forma de saber qué es, o qué tipo tiene una variable es via duckTyping... con la palabra clave typeof.
+		
+		* Javascript corre en un solo hilo y permite conexiones asíncronas.
+		
+		Es parte del motor de implementación de Javascript como el V8 Chrome y node JS
+		
+		Javascript se ejecuta en un solo hilo, esto significa que solo se puede ejecutar una instrucción a la vez.
+		
+		Pero... como puede ser que la ejecución sea en un solo hilo y asincrona?
+		
+		El lenguaje de javascript está dirigido por eventos, el event loop espera y si ve alguna tarea la ejecuta, la termina y va por otra tarea, es un ciclo sin fin que ejecuta tareas.
+		
+		Introducción a NodeJS y NPM.
+		
+		
+		-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+
+		Introducción a NodeJS y NPM
+  * ¿Qué es NodeJS?
+	> NodeJS es un entorno de ejecución multiplataforma Windows, Mac, Linux de código abierto y gratuito para desarrollar aplicaciones web, tanto en servidor como en cliente, y sobre todo para la interacción entre ambas (Full Stack Development)
+
+Ahora que le hemos dado una vuelta a JS en cliente y servidor, y hemos instalado NODEJS podemos afirmar que node es un intérprete de JS?
+
+Si, nodeJS es un intérprete de JS, pero es algo más es un entorno de tiempo de ejecución de Javascript. Este entorno de tiempo de ejecución en tiempo real incluye todo lo que se necesita
+ para ejecutar un programa escrito en JavaScript
+
+Es nodeJS un lenguaje de programación ? NONONONO
+Es un framework? NONONONO
+
+Es un software instalable que permite ejecutar JS en Servidor, crear un servidor web y servir código al cliente. Es un entorno completo para el desarrollo Full Stack
+
+* La compilación de Node.js se realiza en tiempo de ejecución, Just In Time (JIT), esto trae consigo una mayor optimización a las funciones que más veces sean llamadas.
+* Mediante clusters permite tener una escalabilidad alta.
+* Podemos expandir nuestro código añadiendo módulos de forma fácil gracias al Node Package Manager (NPM).
+* Un alto rendimiento en proyectos donde necesitemos ejecución en tiempo real.
+* En startups o equipos pequeños podremos realizar front-end, back-end y hasta una aplicación móvil con un mismo lenguaje.
+
+  * ¿Qué es NPM y qué competencia tiene?
+  > es el gestor de módulos/paquetes de nodeJS
+
+  * Instalación de NodeJS y NPM
+
+
+Vamos a instalar nodeJS, se descarga de la web la versión TLS, en Windows es un ejecutable.
+Se ejecuta, es posible que se tenga que reiniciar, y es posible que se tenga que añadir el PATH porque a veces no lo añade la instalación.
+
+Consola (vemos que está inslalado pidiendo la versión en la consola)
+
+node -v
+v14.17.6
+
+npm -v
+
+¿Qué es un archivo JSON?
+JSON (JavaScript Object Notation) es un formato ligero de intercambio de datos. JSON es de fácil lectura y escritura para los usuarios
+
+npm init,
+node index.js >> 'hola mundo'
+
+
+eso crea un archivo de configuración en json llamado package.json de la siguiente forma:
+
+
+
+{
+  "name": "node02",
+  "version": "1.0.0",
+  "description": "sin descripcion",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node hola.js"  //este es para agregar un segundo script
+  },
+  "author": "Adrian",
+  "license": "ISC"
+}
+
+para que se ejecuten ambos script hay que poner en terminal
+
+npm run start
+
+
+let cosa = "3";
+
+console.log(typeof cosa) //String
+//toma el tipo de dato segun como se comporte
+
+
+var pasaMayusculas = function(param1){
+    var mayusculas = param1.toUpperCase();
+    return mayusculas;
+}
+
+
+if(typeof(param1) != 'string')
+	return "solo pone números!!!";
+
+
+ // ESTRUCTURA DINÁMICA
+ 
+  Para comprender mejor la escritura dinámica se debe aclarar que existen 2 tipos de datos:
+  
+    Primitivos y objetos
+    
+    - Primitivos: tipos de datos que apuntan a un solo valor, estos a su vez se clasifican en 5 tipos:
+
+  * Strings (Cadenas de texto);
+  * Booleanos var Opcion = false;
+  * Undefined 
+  * NULL
+  * Number;
+
+/
+    // ejemplos de datos primitivos
+   
+    let num = 10
+    let str = "texto"
+    let bol = true
+    let und = undefined
+    let nul =  null;
+
+    typeof(str)
+    typeof(num)
+    typeof(bol)
+    typeof(nul)
+    typeof(und)
+    
+	
+	
+let a;
+
+console.log(typeof(a)); //undefined
+
+
+ // En javascript una variable declarada fuera de una función es una variable global y siempre es pasada por referencia a otros ámbitos
+  // vamos a ver la diferencia entre variable local y global
+
+  // Ejemplo 1
+
+   /*
+    var i = "global";
+   // typeof(i)
+    function foo() {
+        i = "local";
+        console.log('qué contiene i? : ' + i);
+    }
+    foo();
+    console.log('qué contiene ahora i? : ' + i); // local
+    */
+	
+	ES6 Y let
+	
+	Un bloque en JavaScript se puede entender como «lo que queda entre dos corchetes» {}, ya sean definiciones de funciones o bloques if, while, for y loops similares.
+	Si una variable es declarada con let 
+	en el ámbito global o en el de una función, la variable pertenecerá al ámbito global o al ámbito de la función respectivamente, de forma similar a como ocurría con var.
+    
+
+    Debido a este comportamiento, muchos desarrolladores se inclinan hacia let como la forma predeterminada de declarar variables en JavaScript y abandonar var (1, 2, 3),
+	pues el scope más específico previene la sobreescritura de variables de forma accidental al declarar variables sin ensuciar el scope superior.
+
+
+
+
+let DiasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+
+console.log(DiasSemana.length)
+console.log(DiasSemana[5])
+DiasSemana.push('Osvaldo')
+console.log(DiasSemana)
+DiasSemana.splice(4,1) // primer param desde donde, y segundo cuantos //eliminacion
+DiasSemana.pop() //elimina el ultimo
+console.log(DiasSemana)
+
+
+
+
+var obj = {
+    numero : 10,
+    texto: "Nuevo texto",
+    objHijo: {
+        numero: 20,
+        textoh: "Nuevo texto hijo"
+    }
+}
+
+console.log(obj.numero)
+console.log(obj.objHijo.numero)
+console.log(obj.objHijo.textoh)
+
+
+
+//console.log(obj.numero)
+//console.log(obj.objHijo.numero)
+//console.log(obj.objHijo.textoh)
+console.log(obj['objHijo']) //muestra objHijo
+
+ /* 
+    let persona = {
+    nombre: ['Bob', 'Smith'],
+    edad: 32,
+    genero: 'masculino',
+    intereses: ['música', 'esquí'],
+    bio: function () {
+    console.log(this.nombre[0] + '' + this.nombre[1] + ' tiene ' + this.edad + ' años. Le gusta ' + this.intereses[0] + ' y ' + this.intereses[1] + '.');
+    },
+    saludo: function() {
+    console.log('Hola, Soy '+ this.nombre[0] + '. ');
+    }
+    };
+
+    persona.nombre
+    persona.nombre[0]
+    persona.edad
+    persona.intereses[1]
+    persona.bio()
+    persona.saludo()
+	*/
+	
+	
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		
+		//Listas, array o arreglo
+const lista = [1, "hola", true, undefined, null];
+const lista2= new Array(2, "hola", true, undefined, null);
+//otra forma 
+const lista3 = new Array( 1) //agrega lugares en vacios
+
+lista2.push("asd");
+lista2.push("asd");
+
+console.log(lista2)
+
+for(let element of lista){
+    console.log(typeof(element))
+}
+
+// Objetos 
+
+const movil = {
+    altura: 10,
+    anchura: 5,
+    marca: "Xiaomi",
+    isWhite: false,
+    contactos: ["Gorka", "Martin", "Raúl"],
+    tarjeta: {
+            marca: "Scandisk",
+            almacenamiento: 32
+    },
+    "altura-tarjeta": 4
+};
+
+//nuevo atributo
+
+movil.anio = 2019;
+movil.marca = "Samsung";
+console.log(movil.tarjeta.marca);
+
+console.log(movil.marca);
+
+// Fechas
+
+const ahora = new Date();
+
+console.log(ahora);
+
+const fecha_milis = new Date(10);
+console.log(fecha_milis);
+
+const fecha_cadena = new Date("march 25 2020");
+console.log(fecha_cadena);
+
+//otra forma
+
+const fecha_valores = new Date(2022,2,15);
+console.log(fecha_valores);
+
+const dia = ahora.getDate();
+const mes = ahora.getMonth()+ 1;
+const anio2= ahora.getFullYear();
+
+console.log(dia, mes, anio2);
+		
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	BUCLES
+let lista = [1, 4, 6, 2, 3, 7, 10, 12, 800]
+
+for (let i = 0; i < lista.length; i++){
+    console.log(lista[i]* 2);
+}
+
+
+// Estructura for ... of
+
+for (const valor of lista) {
+    console.log(valor);
+}
+
+
+// Estructura forEach (flecha)
+
+lista.forEach(valor => {
+    console.log(valor);
+});
+
+	
+let persona = {
+    nombre: "Adrian",
+    apellido: "Fernández Rosa",
+    edad: 30,
+    isDeveloper: true
+}
+
+for (let propiedad in persona){
+    console.log(propiedad);
+    console.log(persona[propiedad]) //salen los valores ( "Adrian", "Fernandez Rosa", etc)
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	// ETIQUETAS (LABELS) EN BUCLES
+// labels
+	//existe una forma mas sencilla de hacerlo
+
+let unidades = 0;
+let decenas = 0;
+
+bucleDecenas: while (true){
+    bucleUnidades: while (true) {
+         console.log(`El numero actual es: + ${decenas}${unidades}`);
+         unidades++;
+ 
+         if ( unidades ===10){
+             unidades = 0;
+             break bucleUnidades;
+         }
+ 
+         if (decenas === 2){
+       //     console.log(`El numero actual es: + ${decenas}${unidades}`);
+            break bucleDecenas;
+        }
+
+     }
+  
+     
+     decenas++;
+ }
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	// STRING PARA ESCRIBIR HTML 
+
+let plantilla = `
+<html>
+<head>
+</head>
+<body>
+
+<h1>Este es un título</h1>
+<p> Este es un párrafo</p>
+</body>
+`
+
+console.log(plantilla);
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		// Métodos más utilizados con cadenas de caracteres
+// Cómo obtener la longitud de un string
+
+let str = "Hola soy un string";
+console.log(str.length);
+
+// Obtener partes de cadenas de caracteres
+// slice() substring() substr() (este último deprecado).
+
+let slice_str = str.slice(0,10);
+
+console.log(slice_str)
+
+let substring_str = str.substring(5,10);
+console.log(substring_str);
+
+// Reemplazar parte del contenido de una cadena de texto
+
+let cadena = "Hola mi nombre es Adrián";
+console.log(cadena);
+
+console.log(cadena.replace("Adrián", "Adri"))
+
+let texto_largo = "Estas cosas y otras muchas, Medité en mis soledades. Sepan que no hay falsedades Ni error en estos consejos es de la boca del viejo de ande salen las verdades";
+
+
+//console.log(texto_largo.replace('en','AR')); // solo sustituye la primera ocurrencia
+
+// para reemplazar todas las ocurrencias se puede usar expreciones regulares
+// Al utilizar la expresión /g (global), reemplaza todas las instancias
+console.log(texto_largo.replace(/en/g,'AR'));
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		// Obtener partes de cadenas de caracteres
+// slice() substring() substr() (este último deprecado).
+
+let slice_str = str.slice(0,10);
+
+console.log(slice_str)
+
+let substring_str = str.substring(5,10);
+console.log(substring_str);
+
+// Reemplazar parte del contenido de una cadena de texto
+
+let cadena = "Hola mi nombre es Adrián";
+console.log(cadena);
+
+console.log(cadena.replace("Adrián", "Adri"))
+
+let texto_largo = "Estas cosas y otras muchas, Medité en mis soledades. Sepan que no hay falsedades Ni error en estos consejos es de la boca del viejo de ande salen las verdades";
+
+
+//console.log(texto_largo.replace('en','AR')); // solo sustituye la primera ocurrencia
+
+// para reemplazar todas las ocurrencias se puede usar expreciones regulares
+// Al utilizar la expresión /g (global), reemplaza todas las instancias
+console.log(texto_largo.replace(/en/g,'AR'));
+
+//---------------------------------------------------------------------------------------------------------
+let stringA = " hola soy un string   ";
+
+console.log(stringA.length);
+console.log(stringA.trim().length)
+//trimStart para eliminar al inicio
+// trimEnd para eliminar al final
+
+
+// Obtener el caracter que hay en cierto indice
+
+let str_4 = "Hola soy el String número 4";
+
+console.log(str_4.charAt(5));
+
+//también se puede tratar como listas de caracteres
+
+console.log(str_4[5]);
+
+console.log("----------------------------------------------------------------")
+
+// Obtener la posición de una palabra dentro de una cadena de caracteres.
+let str_5 = "Hola soy Adrián y me gusta el ajedrez y el truco";
+
+console.log(str_5.indexOf("Adrián"));
+
+console.log(str_5.lastIndexOf("el")); //devuelve la última ocurrencia
+console.log(str_5.indexOf("el"));
+		
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Expresiones regulares y metodos de busqueda de cadenas
+	
+	// Expresiones regulares y metodos de busqueda de cadenas
+	// https://regexr.com
+
+	let texto_largo2= "Si el sueño fuera (como dicen) una tregua, un puro reposo de la mente, ¿por qué, si te despiertan bruscamente sientes que te han robado una fortuna?";
+
+	//cuantas veces aparece una 
+
+	console.log(texto_largo2.match(/una/g).length); //lista con todas las ocurrencias
+
+	// Si contiene una palabra
+
+	console.log(texto_largo2.includes("sueño"));
+
+
+	// Saber si un texto empieza con una palabra.
+	console.log(texto_largo2.startsWith("Si"));
+
+	// Saber si un texto termina con otra palabra.
+	console.log(texto_largo2.endsWith("una?"));
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	// Números en JS
+/*
+NaN, proviene del acrónimo en inglés «Not a Number». Este acrónimo se usa generalmente en algunos lenguajes de programación 
+para expresar un resultado imposible de calcular, como el caso de las raíces negativas, indeterminaciones, etc., retornando NaN como resultado de la operación.
+*/
+let n = 3;
+console.log(n == 3);
+
+let n2 = NaN;
+//si comparamos n2 === NaN dara false
+//mejor hacerlo 
+console.log(isNaN(n2));
+
+// CONSTANTES:
+console.log(Number.POSITIVE_INFINITY)
+console.log(Number.NEGATIVE_INFINITY);
+console.log(Number.MAX_VALUE);
+console.log(Number.MIN_VALUE);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(Number.MIN_SAFE_INTEGER);
+console.log(Number.EPSILON);
+console.log(Number.NaN);
+
+//es entero
+
+console.log(Number.isInteger(4.5));
+
+//convertir a entero
+console.log(Number.parseInt("55.2$")) //lo convierte con exito
+
+// toExponential(), toFixed, toPrecision
+console.log((1.1).toExponential(4)); //agrega decimales
+
+console.log()
+let num1=(1.24).toFixed(6); //lugares despues de la ,
+console.log(num1);
+
+
+console.log((1.12).toPrecision(4));
+
+	
+	// random()
+
+let a = Math.random()*10;
+console.log(a);
+
+let b= Math.trunc(a); //quedarse con el entero
+console.log(b);
+
+let c= 0.6+ b;
+console.log(c)
+
+// Convertir número a string
+console.log("------------")
+let decimal = 255;
+let resultado;
+resultado = decimal.toString();
+
+console.log(resultado);
+
+//en base 16 hexadecimal
+
+resultado = decimal.toString(16);
+console.log(resultado); //convertido a hexadecimal ff
+	
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	const array0 = new Array("a", "b", "c");
+
+const array = ["1","2","3"]; // Array con 3 elementos
+const empty = []; //vacio
+const mixto = ["hola", 45, true]; // Array mixto
+
+
+//otra forma 
+const arrayB = new Array("a","b");
+
+const ArrayE = new Array(4); //4 elementos
+
+console.log(ArrayE);
+
+arrayB.push("nuevo elemento");
+
+console.log(arrayB);
+
+
+// POP
+// Elimina y devuelve el último elemento del array
+
+const arrayD = [1,2,3];
+const arrayF =[arrayD.pop()];
+console.log(arrayD); // 1, 2
+console.log(arrayF); // 3
+
+// UNSHIFT
+// Añade uno o varios elementos al inicio del array.
+// Devuelve tamaño del array.
+
+const arrayUnshift = ["a", "b", "c"];
+
+console.log(arrayUnshift.unshift("1")); //también devuelve el length
+console.log(arrayUnshift)
+
+
+// CONCAT
+// Concatena valores al final, y devuelve el array.
+
+const arrayConcat = ["1", "2", "c"];
+arrayConcat.concat("hola", "2");
+console.log(arrayConcat);
+console.log(arrayConcat.concat("hola", "2")); //no modifica el array, hay que crear uno nuevo para que concatene.
+
+
+// SLICE
+// Devuelve los elementos desde posición ini hasta end
+
+const avesSlice = ["Pato", "Pollo", "Gallina", "Canario"];
+
+console.log(avesSlice.slice(0,2)); // pato y pollo (hasta indice>2)
+
+
+// SPLICE
+// Elimina y Devuelve array de los elementos eliminados
+// Modifica el array.
+
+const avesSplice = ["Pato", "Pollo", "Gallina", "Canario"];
+// console.log(avesSplice.splice(0,2)) //pato y pollo
+const avesBorradas = avesSplice.splice(0,2);
+console.log(avesBorradas)
+console.log(avesSplice); //si modifica
+
+
+
+// JOIN
+// Devuelve un string mostrando cada elemento separado por lo que pongamos de parametro
+const avesJoin = ["Pato", "Pollo", "Gallina", "Canario"];
+console.log(avesJoin.join(" y "));
+
+
+// SPLIT en string
+
+console.log("Adrián ayuda a todos".split(" "));  //devuelve array [Adrián, "ayuda", "a", "todos"]
+
+// FROM en String
+// Devuelve array letra por letra
+
+console.log(Array.from("Hola")); // ["H", "o", "l", "a"]
+
+const avesEsArray = ["Pato", "Pollo", "Gallina", "Canario"];
+let avesString = "Gorrión";
+
+console.log(Array.isArray(avesEsArray)); // true
+console.log(Array.isArray(avesString)); // false
+
+
+// INCLUDES 
+// Comprueba si el elemento esta contenido en el array.
+
+const avesincluido = ["Pato", "Pollo", "Gallina", "Canario"];
+
+console.log(avesincluido.includes("Pato"));
+console.log(avesincluido.includes("Pollo","Polls")); // si uno ya esta devuelve true
+console.log(avesincluido.includes("Pollo")); 
+
+
+// INDEXOF
+// Devuelve la posición de la primera aparición desde from
+
+const avesIndex = ["Pato", "Pollo", "Gallina", "Canario" ,"Pato", "Pollo", "Gallina", "Canario","Pato"];
+
+console.log(avesIndex.indexOf("Pato"))
+console.log(avesIndex.indexOf("Patc",2)) //empieza a buscar desde el elemento 2, si devuelve -1 no encuentra
+
+
+// SORT 
+// ordena por orden alfabetico
+
+const avesurOrdened = ["Pato", "Pollo", "Gallina", "Canario"];
+avesurOrdened.sort();
+console.log(avesurOrdened); // modifica
+avesurOrdened.reverse();
+
+// Si queremos otros ordenes tenderemos que hacer nuestra propia función de ordenación.
+
+const n = [1,11,2,3,12];
+
+const numeros = [3, 23, 12];
+
+console.log( numeros.sort(function(a, b){ return b - a }));
+console.log( numeros.sort(function(a, b){ return a - b }));
+
+console.log(n.sort(function(a, b){ return a - b })); // ascendente
+	
+	---------------------------------------------------------------------------------------------------------------------------------
+	---------------------------------------------------------------------------------------------------------------------------------
+	---------------------------------------------------------------------------------------------------------------------------------
+	// LAS ARRAY FUNCTIONS
+// Son métodos que permiten hacer operaciones con todos los elementos del array.
+
+
+// FOR EACH
+
+const arrayA = ["a", "b", "c", "d"];
+
+//arrayA.forEach((e) => console.log(e)); //imprimiendo cada elemento
+ 
+// Para dotarles de utilidad les pasaremos una función de callback como parámetro.
+
+// Los parámetros son e(elemento) i(posición) y a (array);
+
+const avesFlecha = ["Pato", "Pollo", "Gallina", "Canario", "Periquito"]
+avesFlecha.forEach((e) => console.log(e)); 
+avesFlecha.forEach((e, i) => console.log(e, i));  //imprimiendo elemento + indice
+avesFlecha.forEach((e, i, a) => console.log(e, i, a[0])) //imprimiendo elemento + indice + primer elemento del array
+
+// FUNCION EVERY
+// Comprobaremos que todos los elementos cumplen una condición que se especifica en el callback
+
+console.log(arrayA.every((e) => e.length == 1)); // true
+
+// FUNCION SOME 
+// Igual pero es si "al menos" uno de los elementos cumple con loa condicción.
+
+const arraySome = ["a", "b", "cc", "d"];
+
+console.log(arraySome.some((e) => e.length == 2));
+
+// MAP (transformaciones)
+//tendremos un nuevo array con los cambios que le pasemos.
+
+const arrM = ["Pato", "Pollo", "Gallina", "Canario", "Periquito"];
+
+const nuevoArr = arrM.map((e) => e.length);
+console.log(nuevoArr); // los length de cada elemento
+
+
+// FILTER O FILTRADO
+
+const nuevoArrFilter = arrM.filter((e) => e.charAt(0)=== "P"); //en lugar de charAt se puede usar e[0] también
+console.log(nuevoArrFilter); // nuevo array con los elementos comenzados con p.
+
+// FIND (BÚSQUEDA)
+// Nuevos en ES6, buscamos elementos en un array.
+// Nos devuelve el primer elemento que encuentra.
+
+console.log(arrM.find((e) => e.length == 7)); // Devuelve la primer ocurrencia
+console.log(arrM.findIndex((e) => e.length == 7)); // devuelve el indice de la primer ocurrencia
+
+
+// ITERADORES
+// En ES6 hay unos nuevos métodos muy útiles para recorrer todos los elementos de un array.
+
+// KEYS
+// Obtiene un array con las keys (posiciones).
+
+const arrI = ["Pato", "Pollo", "Gallina", "Canario", "Periquito"];
+
+const keys =[...arrI.keys()];
+
+console.log(keys); //indices.
+//más adelante ampliaremos
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	// ################ DECLARACIÓN DE UN SET
+ /*
+    Desde ES6 tenemos un nuevo tipo de estructura, los set
+    Los set son parecidos a los arrays, pero tienen algunas diferencias,
+    La gran direcencia son la gestión de duplicados.
+    En un set no está permitido guardar valores duplicados.
+    En realidad un array es una colección de índices y un Set es una colección de claves.
+    Una colección de índices, es una colección de datos que ese encuentras ordenados por un índice.
+    Una colección de claves, es una colección de datos que usa claves y esas claves contienen elementos con los 
+    que podemos iterar en el orden en el que fueron insertados.
+
+ */
+  // inicilizamos con un set vacío
+  
+   // const miSet = new Set(); 
+  
+  // o con valores
+  
+  //const miSet = new Set([1, 2, 2, 3, 4, 4]) 
+  //miSet // vemos como no permite duplciados y sus métodos
+
+  //const mySet = new  Set(1) nos da error ya que siempre tiene que ser un objeto iterable
+
+  // ################ AÑADIR ELEMENTOS
+  
+ 
+  const mySet = new Set([1, 2, 3]); 
+  //mySet.add('45');
+  //mySet.add('45');
+
+  // En un Set siempre se almacenarán los nuevos valores al final del mismo.
+  // Si ya existe lo ignorará
+ // mySet;
+
+  //mySet.delete(2); //Borrar elementos. //elimina directo el 2 (no es indice)
+  //mySet
+  console.log(mySet.values()) // iterator
+  //mySet.size // tamaño del Set
+
+  /* En un set no podemos acceder directo a un elemento, es solo una colección de claves. solo podremos
+     Iterar todos sus elementos a través de un loop.
+     */
+
+     const SetLoop = new Set([1,2,3]);
+
+     /* for (let valor of SetLoop){
+         console.log(valor);
+     } */
+
+     // en ES6
+     SetLoop.forEach(valor => console.log(valor));
+
+     //############ BUSCAR EN UN SET
+     // Utilizaremos el método has, que nos devolvera un true o false,
+     // en función de si existe el valor buscado o no.
+
+     const myset4 = new Set([1,2,3,5]);
+
+     // BUSCAR EN UN SET
+
+     // ############### Buscar en un SET
+  // utilizaremos el método has, que nos devolverá un true o un false, en función de si existe el valor buscado o no.
+   
+    const mySet2 = new Set([1, 2, 3]);
+    console.log(mySet.has(1)); 
+    // true
+    console.log(mySet.has(4));
+    // false
+	--------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------
+	
+	 /*
+     ¿Qué son los objetos?
+     No es más que una variable especial que puede contener más variables en su interior. De esta forma, tenemos la posibilidad de organizar múltiples variables
+     de la misma temática dentro de un objeto.
+
+    */
+
+     const objeto = new Object(); //objeto <<genérico vacío>>
+
+     // Lo comun es hacerlo de manera literal
+
+     const persona = {
+         nombre: "Pepe",
+         edad: 30,
+         id: 10
+     };
+
+     //acceder propiedades
+     persona.nombre;
+     //etc
+
+     //otra forma
+     console.log(persona['nombre']);
+
+     //como ordenar Array de objetos 
+
+    let objs = [
+         {nombre: "Pami", apellido: "Pacio"},
+          {nombre: "prendete", apellido: "ese"},
+          {nombre: "Adrian", apellido: "fer"}
+     ]
+
+     function compare( a, b){
+         if(a.nombre < b.nombre){
+             return -1;
+         }
+         if(a.nombre > b.nombre){
+            return 1;
+        }
+        return 0;
+     }
+     objs.sort(compare);
+
+     console.log(objs); //ordenado por nombre
+	
+	------------------------------------------------------------------
+	------------------------------------------------------------------
+	------------------------------------------------------------------
+	     console.log("-------------------------------------------------------------------------------------------------------------------------------------------");
+
+     let fecha = new Date();
+
+     console.log(fecha);
+     console.log(fecha.toLocaleDateString());
+
+     console.log(fecha.toJSON()); // en Json.
+
+     console.log(fecha.toUTCString()); //pasa a utc0
+	---------------------------------------------------------------------------
+	---------------------------------------------------------------------------
+	---------------------------------------------------------------------------
+	
+	     let apellido = null;
+
+     console.log(!apellido); //devuelve true
+
+     apellido = undefined;
+     console.log(typeof apellido === 'undefined'); //true
+	 ----------------------------------------------------------------------
+	 iniciando proyecto de node
+	 en consola 
+	 
+	 npm init -y 
+	 //el -y es para que cree todo por defecto
+	 ------------------------------------------------------------------------------------------------------
+		PROGRAMACIÓN DE CONSOLA CON NODE:
+		
+		
+process.stdout.write("hola, dime tu nombre \n");
+
+process.stdin.on('data', function(data) {
+    process.stdout.write("hola "+ data.toString()+ "\n");
+    process.exit();
+})
+	------------------------------------------------------------------------------------------------------------------------------------------------------------
+	------------------------------------------------------------------------------------------------------------------------------------------------------------
+	------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	FUNCIONES
+
+//argumentos por defecto
+
+function suma(a=1, b=2){
+    return a + b;
+};
+
+console.log(suma());
+
+let miSuma;
+
+function sumar(a, b){
+    miSuma= a+b;
+    return true;
+}
+
+sumar(2,4); //modificamos la variable global misuma
+
+console.log(miSuma);
+
+// FUNCION ARROW
+
+const sumando = (a,b) => a + b;
+
+let resultado = sumando(1, 5)
+console.log(sumando(2,3));
+console.log(resultado);
+
+// Las funciones también son un tipo de dato
+
+console.log(typeof sumando); // tipo function
+
+
+// FUNCIONES ANONIMAS
+
+/*
+    Las funciones anónimas o funciones lambda son un tipo de funciones que se declaran sin nombre de función y se alojan en el interior de una 
+    variable y haciendo referencia a ella cada vez que queramos utilizarla
+*/
+
+const saludo = function () {
+    return "Hola";
+};
+
+const otroSaludo = () => "hola2";
+
+console.log(saludo());
+console.log(otroSaludo());
+
+
+
+// FUNCIONES CALLBACK O RETROLLAMADAS
+
+// Consiste en pasar por parámetro una función a otra función
+
+//Tenemos una función B
+/*
+const b = function() {
+    console.log("Somos la función b");
+
+}
+
+const e = function() {
+    console.error("Error");
+    console.log("Error");
+}
+
+const miFuncion = function (callback, callbackError, option =0){
+    if(option > 1) callback();
+    else callbackError();
+
+};
+
+let o=0;
+miFuncion(b,e,o);
+*/
+
+
+// Función auto ejecutable con parámetros.
+
+(function (name){
+    console.log(`!Hola, ${name}!`); //Hola Adrián
+})("Adrian");
+
+
+ // Uso de this.
+
+ const a = function() {
+     console.log(this);
+ }
+
+ const b2 = () => console.log(this); //imprime todo lo que tiene la funcion
+
+ //a();
+
+/*
+                LAS PROMESAS
+ Las promesas son un concepto para resolver el problema de asincronía de una forma mucho más elegante y práctica que, 
+ por ejemplo, utilizando funciones callbacks directamente.
+
+ Como su propio nombre indica, una promesa es algo que, en principio pensamos que se cumplirá pero en el futuro pueden ocurrir varias cosas.
+
+*/
+
+const d = () => "fin";
+/* 
+import "isomorphic-fetch"
+import { resolve } from "path";
+globalThis.fetch = fetch */
+
+/* fetch(d)
+.then(Response => response.text())
+.then(data => console.log(data))
+.finally(() => console.log("Terminado."))
+.catch(error => console.error(data)); */
+    
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+	//IMPLEMENTACION CON PROMESAS
+const doTask = (repeticiones) => new Promise((resolve, reject) => {
+    const num = [];
+    for (let i = 0; i < repeticiones; i++) {
+      const number = 1 + Math.floor(Math.random() * 6);
+      num.push(number);
+      if (number === 6) {
+        reject({
+          error: true,
+          message: "Se ha sacado un 6"
+        });
+      }
+    }
+    resolve({
+      error: false,
+      value: num
+    });
+  });
+  
+  doTask(1)
+    .then(result => console.log("Tiradas correctas: ",result.value))
+    .catch(err => console.error("Ha ocurrido algo: ", err.message));
+
+    //El método Promise.reject(reason) retorna un objeto Promise que es rechazado por la razón específicada.
+
+    //El método Promise.resolve(value) retorna un objeto Promise que es resuelto con el valor dado. Si el valor es una promise, esa promise es devuelta; 
+    //    si el valor es un thenable (si tiene un método "then"), 
+    // el valor devuelto le seguirá a ese thenable, adoptando su estado; de otro modo la promise devuelta estará completada con el valor.
+	
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			EXCEPCIONES.
+			
+			
+			// Necesitamos saber manejar errores, 
+// Es buena práctica capturar las excepciones.
+
+// Por ejemplo podemos tener un error del tipo:
+
+/*
+ let a= [];
+ a = null;
+ let b= a[0]; // lanza TypeError
+ console.log("hola");
+ */
+
+ // En este caso hemos visto que generamos un error del tipo TypeError
+/*
+ Tenemos los siguientes Tipos de error:
+ > InternalError: error interno del motor de JS
+    * demasiados casos del switch
+    * demasiados paréntesis en la expresión regular
+    * iniciador de arreglo demasiado grande
+    * demasiada recursividad
+    
+ > ReferenceError
+    El objeto ReferenceError representa un error cuando se hace referencia a una variable inexistente.
+    console.log(x/2); //reference error
+ > RangeError
+  El objeto rangeError indica un error cuando un valor no se encuentra dentro de un rango de valores permitidos.
+
+ > SyntaxError
+    El objeto syntaxError representa un error cuando se trata de interpretar codigo sintacticamente invalido.
+    
+    Al igual que en java, para capturar errores usamos try... catch.
+
+
+    */
+
+    try{
+        //lanzando error nuevo
+    //    throw new Error("error gravisimo"); //la ejecución no continua
+         let a=[]
+        a = null;
+        let b= a[0];
+
+    }catch(err){
+        if(err instanceof TypeError)
+            console.error("custom error", err);
+            else throw err
+     
+ }
+console.log("hola");
+	
+	
+	
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+		INDICE
+		
+		LINEA 85  :: COMO EJECUTAR NODE.
+		LINEA 255 :: LISTAS Y FECHAS, OBJETOS HASTA 314
+		LINEA 340 :: ITERAR PROPIEDADES DE OBJETO, FUNCION FLECHA ARRIBA 
+		LINEA 360 :: ETIQUETAS DE BUCLES
+		LINEA 389 :: ETIQUETAS 
+		LINEA 400 :: STRING, EXPRESIONES REGULARES PARA REEMPLAZAR OCURRENCIAS 
+		LINEA 439 :: STRING, OBTENER OCURRENCIA, QUITAR ESPACIOS, REEMPLAZAR TODAS LAS OCURRENCIAS
+		LINEA 498 :: EXPRESIONES REGULARES MÉTODOS DE BÚSQUEDA DE CADENAS
+		LINEA 523 :: NUMEROS JS TOFIXED, TO PRECISION, RANDOM.
+		LINEA 564 :: RANDOM, CONVERTIR A HEXADECIMAL, A INTEGER, FLOAT.
+		LINEA 591 :: METODOS PARA ARRAY.
+		LINEA 698 :: SORT, ORDENAR NUMEROS Y STRING, ETC
+		LINEA 720 :: ARRAYS FUNCTIONS, FILTER, MAP , KEYS
+		LINEA 789 :: SET, MANEJO DE SET, ITERABLE, TRUE O FALSE EN BUSQUEDA, DELETE-
+		LINEA 861 :: OBJETOS, ORDENAR OBJETOS.
+		LINEA 911 :: ALGO MAS DE FECHAS
+		LINEA 923 :: MANEJO DE NULOS Y UNDEFINED (  if (!nombre))
+		LINEA 936 :: PROGRAMACION DE CONSOLA CON NODE.
+		LINEA 950 :: FUNCIONES.
+		LINEA 1028 :: FUNCION AUTO EJECUTABLE.
+		LINEA 1070 :: PROMESAS.
+		LINEA 1101 :: EXCEPCIONES.
+		
+		
+		
+		
+		

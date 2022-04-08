@@ -1,0 +1,12 @@
+{
+  "name": "node02",
+  "version": "1.0.0",
+  "description": "sin descripcion",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node hola.js"
+  },
+  "author": "Adrian",
+  "license": "ISC"
+}
