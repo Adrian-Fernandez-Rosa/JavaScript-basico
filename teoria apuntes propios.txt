@@ -1150,7 +1150,64 @@ const doTask = (repeticiones) => new Promise((resolve, reject) => {
      
  }
 console.log("hola");
+	--
 	
+	/* 
+    try{
+        //lanzando error nuevo
+    //    throw new Error("error gravisimo"); //la ejecución no continua
+         let a=[]
+        a = null;
+        let b= a[0];
+
+    }catch(err){
+        if(err instanceof TypeError)
+            console.error("custom error", err);
+            else throw err
+     
+ }
+console.log("hola");
+ */
+ class miError extends Error{
+     message = "Este es mi error personalizado";
+ }
+
+ try{
+    throw new miError("adfaedwf");
+ }catch(err){
+
+    throw err; // es obligatorio este throw
+ }
+ ----------------------------------------------------------------------------------------------------------------------
+ ----------------------------------------------------------------------------------------------------------------------
+ ----------------------------------------------------------------------------------------------------------------------
+	
+	const fs = require('fs'); // estos métodos son asíncronos por defecto
+const path = require('path');
+let datetime = new Date();
+
+try {
+    let a = []
+    a = null
+    let b = a[0] /// lanza un TypeError
+  }  
+  catch(err) {
+    if(err instanceof TypeError) {
+        fs.appendFile('log_err.txt', datetime + ', Errorcito,' + err + ', ID Error\n', function (err) {
+            //console.log('Error Saved!');
+        });
+    } 
+    else {
+      fs.appendFile('log_err.txt', datetime + ',Errorazo,' + err + ', ID Error\n', function (err) {
+        //console.log('Error Saved!');
+      });
+      throw err
+    }
+  }
+
+  fs.appendFile('log_accesos.txt', datetime + ',"Aquí hemos llegado bien", éxito\n', function (err) {
+        //console.log('Saved!');
+  });
 	
 	
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1181,6 +1238,8 @@ console.log("hola");
 		LINEA 1028 :: FUNCION AUTO EJECUTABLE.
 		LINEA 1070 :: PROMESAS.
 		LINEA 1101 :: EXCEPCIONES.
+		LINEA 1171 :: CUSTOM ERROR.
+		LINEA 1185 :: USO IMPROVISADO DE LOGS , (investigar log4js, loglevel, winston)
 		
 		
 		

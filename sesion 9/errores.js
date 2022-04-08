@@ -32,10 +32,10 @@
 
 
     */
-
+/* 
     try{
         //lanzando error nuevo
-        throw new Error("error gravisimo");
+    //    throw new Error("error gravisimo"); //la ejecución no continua
          let a=[]
         a = null;
         let b= a[0];
@@ -47,3 +47,14 @@
      
  }
 console.log("hola");
+ */
+ class miError extends Error{
+     message = "Este es mi error personalizado";
+ }
+
+ try{
+    throw new miError("adfaedwf");
+ }catch(err){
+
+    throw err; // es obligatorio este throw
+ }
