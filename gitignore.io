@@ -10,10 +10,10 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
-
+sesion 14b/node_modules
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
-
+ sesion 14b/node_modules/
 # Runtime data
 pids
 *.pid
@@ -47,6 +47,7 @@ build/Release
 node_modules/
 jspm_packages/
 **/**/node_modules 
+**/node_modules
 
 jspm_packages/
 
